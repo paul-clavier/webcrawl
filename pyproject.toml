@@ -1,0 +1,33 @@
+[project]
+name = "eurosport-search"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "elasticsearch>=9,<10",
+    "pgvector>=0.5.0",
+    "psycopg[binary]>=3.3.6",
+    "pydantic>=2.13.5",
+    "python-dotenv>=1.2.4",
+    "requests>=2.34.2",
+    "sentence-transformers>=6.1.0",
+    "tqdm>=4.70.1",
+    "trafilatura>=2.2.0",
+    "warcio>=1.8.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.10",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N"]
+ignore = ["N999"]  # numbered scripts are not valid module names, by design
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
